@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
-import { InternalizedA } from "@/remoteComponents/InternalizedA";
+import InternalizedA from "@/components/InternalizedA/InternalizedA";
 
 
 const inter = Inter({ subsets: ["latin"] });

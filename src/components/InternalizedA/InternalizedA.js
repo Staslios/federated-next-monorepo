@@ -1,6 +1,8 @@
 import ExternalizedA from "pack-a/ExternalA"
 
 
-export const InternalizedA = ({}) => {
+const InternalizedA = ({}) => {
   return <ExternalizedA description={'es import'} />
 }
+
+export default InternalizedA
