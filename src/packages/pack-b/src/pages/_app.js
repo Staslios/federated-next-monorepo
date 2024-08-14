@@ -1,5 +1,5 @@
 import App from 'next/app';
-import "@/styles/global.scss";
+import "@/styles/globals.scss";
 
 
 function MyApp({ Component, pageProps }) {
