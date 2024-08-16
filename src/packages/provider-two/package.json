@@ -5,7 +5,7 @@
   "scripts": {
     "clean": "rimraf .next",
     "dev": "npm run clean && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true next dev -p 3002",
-    "build": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true next build",
+    "build": "npm run clean && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production next build",
     "start": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production next start -p 3002"
 },
   "dependencies": {
