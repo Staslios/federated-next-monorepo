@@ -8,13 +8,13 @@ const Navbar = ({}) => {
       <Link href="/">Home</Link>
     </li>
     <li>
-      <Link href="/packageA">Package A</Link>
+      <Link href="/provider-one">Provider one</Link>
     </li>
     <li>
-      <Link href="/packageB">Package B</Link>
+      <Link href="/provider-two">Provider two</Link>
     </li>
     <li>
-      <Link href="/allPackages">All packages</Link>
+      <Link href="/all-providers">All providers</Link>
     </li>
   </ul>
 }

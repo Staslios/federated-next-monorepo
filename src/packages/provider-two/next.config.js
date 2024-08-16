@@ -12,7 +12,7 @@ const nextConfig = {
 
     config.plugins.push(
       new NextFederationPlugin({
-        name: 'pack-b',
+        name: 'provider-two',
         filename: 'static/chunks/remoteEntry.js',
         exposes: {
           './ExternalB': './src/components/ExternalizedB/ExternalizedB.js'

@@ -1,12 +1,12 @@
 {
-  "name": "pack-b",
+  "name": "provider-one",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "clean": "rimraf .next",
-    "dev": "npm run clean && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true next dev -p 3002",
+    "dev": "npm run clean && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true next dev -p 3001",
     "build": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true next build",
-    "start": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production next start -p 3002"
+    "start": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production next start -p 3001"
 },
   "dependencies": {
     "@module-federation/nextjs-mf": "^8.4.9",

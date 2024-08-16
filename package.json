@@ -5,8 +5,7 @@
     "node": "20"
   },
   "workspaces": [
-    "src/packages/pack-a",
-    "src/packages/pack-b"
+    "src/packages/*"
   ],
   "scripts": {
     "clean": "rimraf .next",

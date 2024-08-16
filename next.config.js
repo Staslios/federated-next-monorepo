@@ -15,7 +15,8 @@ const nextConfig = {
         name: 'host',
         filename: 'static/chunks/remoteEntry.js',
         remotes: {
-          'pack-a': `pack-a@http://localhost:3001/_next/static/${isServer ? 'ssr' : 'chunks'}/remoteEntry.js`,
+          'provider-one': `provider-one@http://localhost:3001/_next/static/${isServer ? 'ssr' : 'chunks'}/remoteEntry.js`,
+          'provider-two': `provider-two@http://localhost:3002/_next/static/${isServer ? 'ssr' : 'chunks'}/remoteEntry.js`,
         },
         exposes: {},
         shared: {},

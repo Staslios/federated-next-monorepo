@@ -1,0 +1,23 @@
+$main-color: var(--color-one);
+$secondary-color: var(--color-two);
+
+.info {
+    border: 1px solid $secondary-color;
+    border-radius: 6px;
+    background: $secondary-color;
+    color: $main-color;
+    padding: 6px;
+    display: inline-block;
+    margin: 0 2px;
+
+    .desc {
+        font-size: 18px;
+        text-transform: uppercase;
+        margin: 4px 0;
+        font-weight: bold;
+    }
+
+    .prop {
+
+    }
+}

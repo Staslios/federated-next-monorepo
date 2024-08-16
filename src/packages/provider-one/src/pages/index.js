@@ -6,7 +6,7 @@ import ExternalizedA from "@/components/ExternalizedA/ExternalizedA";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const TITLE = "Package A"
+  const TITLE = "Provider One"
 
   return <>
     <Head>
