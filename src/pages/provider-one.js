@@ -1,4 +1,4 @@
-import InternalizedA from "@/components/InternalizedA/InternalizedA";
+import InternalizedA from "@/components/InternalizedA/LazyInternalizedA";
 
 
 export default function ProviderOne() {
