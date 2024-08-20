@@ -1,20 +1,20 @@
 # federated-next-monorepo
-
 Setup with Next 14 (page routing) + Module Federation + npm workspaces + scss.
 
 ## Dependencies explained
-### @module-federation/nextjs-mf
-Core module in order to make module federation work with next
+- **@module-federation/nextjs-mf**: core module module federation module for next
+- **cross-env**: solves environment variables problem between win and unix machines
+- **rimraf**: same as cross-env but for the command remove `rm -rf`.
+- **sass**: I guess why not? 
+- **webpack**: Even tho Next comes with webpack we need it to install in order to work with Module Federation
+- **concurrently**: It is a better version of 'npm run something & npm run something'
 
-### cross-env
-Module federation needs env variables. If you want to do this through terminal this is done differently between unix 
-and win instance. cross-env solves this problem by giving the same config for all os.
-
-### rimraf
-The unix command rm -rf for node in a cross-platform implementation.
-
-### sass
-Why not? 
-
-### webpack
-Also this package is needed to work with module federation
+## Observations
+1. The root `./node_modules` includes all downloaded deps, those inside the workspaces include some build time configuration for Module Federation;
+2. Same speech for `./package.json`, it include all configured deps;
+3. CSS or SCSS is either global inside _app.js or as css module and will be injected into js. Styles cannot be imported on separate file from the component;
+4. Due to Module Federation app router is off limits;
+5. Apparently Module Federation exported components can be imported in any way (`es import`, `dynamic`, `lazy`, `window`) they can be used both ssr and csr.
+6. If you opt for SSR with exposed components from Module Federation, when building the _shell_ the _providers_ have to be up and running;
+7. Yes, `_app.js` is needed.
+8. Yes, `_document.js` is needed.
