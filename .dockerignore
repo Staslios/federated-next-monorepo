@@ -1,0 +1,30 @@
+# dependencies
+/node_modules
+
+#workspaces
+src/packages/provider-one
+src/packages/provider-two
+
+# next.js
+/.next/
+
+# production
+/build
+
+# misc
+.idea
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*
+.env*.local
+package-lock.json
+
+# documentation
+README.md

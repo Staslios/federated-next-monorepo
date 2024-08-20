@@ -18,3 +18,9 @@ Setup with Next 14 (page routing) + Module Federation + npm workspaces + scss.
 6. If you opt for SSR with exposed components from Module Federation, when building the _shell_ the _providers_ have to be up and running;
 7. Yes, `_app.js` is needed.
 8. Yes, `_document.js` is needed.
+
+## Roadmap
+- Docker build with federated modules - WIP
+- Docker multi-stage build
+- Docker volumes for `node_modules` - WIP
+- Next standalone build

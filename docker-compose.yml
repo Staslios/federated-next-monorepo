@@ -1,0 +1,39 @@
+services:
+  # NB: shell/consumer has to run as last app, workspaces can be run at will
+
+  ## 1st workspace
+  #provider-one:
+  #  build:
+  #    context: ./src/packages/provider-one
+  #  ports:
+  #    - "3001:3001"
+  #  image: provider-one:0.1.0
+  #  container_name: provider-one
+  #  networks:
+  #    - local-network
+
+  ## 2nd workspace
+  #provider-two:
+  #  build:
+  #    context: ./src/packages/provider-two
+  #  ports:
+  #    - "3002:3002"
+  #  image: provider-two:0.1.0
+  #  container_name: provider-two
+  #  networks:
+  #    - local-network
+
+  # shell/consumer application
+  consumer:
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    image: consumer-app:0.1.0
+    container_name: consumer-app
+    networks:
+      - local-network
+
+networks:
+  local-network:
+    driver: bridge
