@@ -5,11 +5,13 @@
     "node": "20"
   },
   "workspaces": [
-    "src/packages/*"
+    "src/packages/provider-one",
+    "src/packages/provider-two"
   ],
   "scripts": {
     "clean": "rimraf .next",
     "dev": "npm run clean && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true next dev -p 3000",
+    "dev-all": "concurrently \"npm run dev\" \"npm run dev --workspace=provider-one\" \"npm run dev --workspace=provider-two\"",
     "build": "npm run clean && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production next build",
     "start": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production next start -p 3000"
   },
@@ -20,6 +22,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
     "rimraf": "^6.0.1",
     "sass": "^1.77.8",
