@@ -3,16 +3,16 @@ Setup with Next 14 (page routing) + Module Federation + npm workspaces + scss.
 
 ## Getting started
 Clone project
-``` shell
+``` bash
 git clone https://github.com/Staslios/federated-next-monorepo.git
 ```
 then install deps
-``` shell
+``` bash
 cd federated-next-monorepo
 npm i 
 ```
 at last start project in dev mode
-``` shell
+``` bash
 npm run dev-all
 ```
 It will start the main/shell app on localhost:3000 and the providers on :3001 and :3002
