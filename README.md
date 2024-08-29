@@ -1,6 +1,22 @@
 # federated-next-monorepo
 Setup with Next 14 (page routing) + Module Federation + npm workspaces + scss.
 
+## Getting started
+Clone project
+``` shell
+git clone https://github.com/Staslios/federated-next-monorepo.git
+```
+then install deps
+``` shell
+cd federated-next-monorepo
+npm i 
+```
+at last start project in dev mode
+``` shell
+npm run dev-all
+```
+It will start the main/shell app on localhost:3000 and the providers on :3001 and :3002
+
 ## Dependencies explained
 - **@module-federation/nextjs-mf**: core module module federation module for next
 - **cross-env**: solves environment variables problem between win and unix machines

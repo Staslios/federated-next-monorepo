@@ -1,11 +1,11 @@
 # Use an official Node.js runtime as a parent image
-FROM node:20-alpine
+FROM node:20-slim
 
 # Set the working directory inside the container
-WORKDIR /app
+WORKDIR /provider-two
 
 # Copy the package.json file
-COPY ../../../package.json ./
+COPY package.json ./
 
 # Install dependencies
 RUN npm install
