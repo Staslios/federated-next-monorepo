@@ -6,7 +6,7 @@ src/packages/provider-one
 src/packages/provider-two
 
 # next.js
-/.next/
+/.next
 
 # production
 /build

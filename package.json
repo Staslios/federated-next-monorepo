@@ -13,7 +13,9 @@
     "dev": "npm run clean && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true next dev -p 3000",
     "dev-all": "concurrently \"npm run dev\" \"npm run dev --workspace=provider-one\" \"npm run dev --workspace=provider-two\"",
     "build": "npm run clean && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production next build",
-    "start": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production next start -p 3000"
+    "start": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production next start -p 3000",
+    "docker-build": "next build",
+    "docker-start": "next start -p 3000"
   },
   "dependencies": {
     "@module-federation/nextjs-mf": "^8.4.9",
