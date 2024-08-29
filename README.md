@@ -6,15 +6,18 @@ Clone project
 ``` bash
 git clone https://github.com/Staslios/federated-next-monorepo.git
 ```
+
 then install deps
 ``` bash
 cd federated-next-monorepo
 npm i 
 ```
+
 at last start project in dev mode
 ``` bash
 npm run dev-all
 ```
+
 It will start the main/shell app on localhost:3000 and the providers on :3001 and :3002
 
 ## Dependencies explained
@@ -36,7 +39,8 @@ It will start the main/shell app on localhost:3000 and the providers on :3001 an
 8. Yes, `_document.js` is needed.
 
 ## Roadmap
-- Docker build with federated modules - WIP
-- Docker multi-stage build
-- Docker volumes for `node_modules` - WIP
+- ~~Docker build with federated modules~~
+- Docker multi-stage build - WIP
+~~- Docker volumes for `node_modules` - WIP~~ 
+  - Since the idea is to have each process a standalone process a shared node_modules would bring the opposite result
 - Next standalone build
