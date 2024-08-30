@@ -3,6 +3,7 @@ const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
 
 const nextConfig = {
 
+  output: 'standalone',
   reactStrictMode: true,
   experimental: {
     esmExternals: false,

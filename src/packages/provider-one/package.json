@@ -6,7 +6,9 @@
     "clean": "rimraf .next",
     "dev": "npm run clean && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true next dev -p 3001",
     "build": "npm run clean && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production next build",
-    "start": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production next start -p 3001"
+    "start": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production next start -p 3001",
+    "standalone": "npm run build && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production PORT=3001 node .next/standalone/src/packages/provider-one/server.js",
+    "docker-build": "next build"
   },
   "dependencies": {
     "@module-federation/nextjs-mf": "^8.4.9",

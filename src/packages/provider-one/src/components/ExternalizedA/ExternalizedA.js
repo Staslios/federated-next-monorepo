@@ -7,7 +7,7 @@ const ExternalizedA = ({ description }) => {
     <div className={style.desc}>
       Provider 1 component
     </div>
-    <div className={style.prop}>
+    <div>
       {description}
     </div>
   </div>

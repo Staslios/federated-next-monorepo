@@ -1,3 +1,5 @@
+# Main/shell app Dockerfile
+
 # Official Node.js runtime as a parent image
 FROM node:20-slim AS builder
 

@@ -27,4 +27,5 @@ yarn-error.log*
 package-lock.json
 
 # documentation
-README.md
+*.md
+/docs

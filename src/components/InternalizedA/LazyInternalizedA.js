@@ -1,8 +1,7 @@
 import React from 'react';
-import lazyWrapperComponent from "@/packages/shared/components/LazyWrapperComponent";
+import lazyWrapperComponent from "@/components/HOC/lazyWrapperComponent";
 
 
-const LazyInternalizedA = lazyWrapperComponent(React.lazy(() =>
-  import('provider-one/ExternalA')), "loading remote from Provider ONE");
+const LazyInternalizedA = lazyWrapperComponent(React.lazy(() => import('provider-one/ExternalA')), "loading remote from Provider ONE");
 
 export default LazyInternalizedA

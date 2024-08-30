@@ -1,5 +1,5 @@
 import React from 'react';
-import lazyWrapperComponent from "@/packages/shared/components/LazyWrapperComponent";
+import lazyWrapperComponent from "@/components/HOC/lazyWrapperComponent";
 
 
 const LazyInternalizedB = lazyWrapperComponent(React.lazy(() =>
