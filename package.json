@@ -15,7 +15,8 @@
     "build": "npm run clean && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production next build",
     "start": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production next start -p 3000",
     "standalone": "npm run build && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production PORT=3000 node .next/standalone/server.js",
-    "docker-build": "next build"
+    "docker-build": "next build",
+    "docker-start": "next start -p 3000"
   },
   "dependencies": {
     "@module-federation/nextjs-mf": "^8.4.9",
