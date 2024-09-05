@@ -3,7 +3,7 @@ const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
 
 const nextConfig = {
 
-  output: 'standalone',
+  output: process.env.STANDALONE_BUILD ? 'standalone' : undefined,
   reactStrictMode: true,
   experimental: {
     esmExternals: false,
@@ -20,8 +20,8 @@ const nextConfig = {
         },
         shared: {},
         extraOptions: {
-          debug: true, // `false` by default
-          exposePages: false, // `false` by default
+          debug: process.env.NODE_ENV !== 'production',
+          //automaticAsyncBoundary: true
         }
       })
     );
