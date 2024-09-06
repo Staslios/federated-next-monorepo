@@ -28,17 +28,29 @@ FROM node:20-slim
 # Set the working directory inside the container
 WORKDIR /provider-one
 
+# Copy the package.json file
+COPY package.json ./
+
+# Environment variables necessary for module federation and production build
+ENV NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production
+
+# Install dependencies
+RUN npm install --production
+
 # Copy from builder of the necessary files only
-COPY --from=builder /provider-one/.next/standalone ./
+COPY --from=builder /provider-one/.next ./.next
+
+# Removes next standalone build in order to free some space since we wont need it
+RUN rm -rf /.next/standalone
 
 # Copy the public folder (it is needed to serve static assets)
 COPY --from=builder /provider-one/public ./public
 
+# Copy the public folder (it is needed to serve static assets)
+COPY --from=builder /provider-one/next.config.js ./
+
 # Expose the port the app runs on
 EXPOSE 3001
 
-# Environment variables necessary for module federation and production build
-ENV NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production PORT=3001
-
 # Start the application
-CMD ["node", "server.js"]
+CMD ["npm", "run", "docker-start"]

@@ -16,7 +16,7 @@ RUN npm install
 COPY . .
 
 # Environment variables necessary for module federation and production build
-ENV NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production STANDALONE_BUILD=true
+ENV NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production
 
 # Build the Next.js app
 RUN npm run docker-build
@@ -28,17 +28,29 @@ FROM node:20-slim
 # Set the working directory inside the container
 WORKDIR /main-app
 
+# Copy the package.json file
+COPY package.json ./
+
+# Environment variables necessary for module federation and production build
+ENV NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production
+
+# Install dependencies
+RUN npm install --production
+
 # Copy from builder of the necessary files only
-COPY --from=builder /main-app/.next/standalone ./
+COPY --from=builder /main-app/.next ./.next
+
+# Removes next standalone build in order to free some space since we wont need it
+RUN rm -rf /.next/standalone
 
 # Copy the public folder (it is needed to serve static assets)
 COPY --from=builder /main-app/public ./public
 
+# Copy the public folder (it is needed to serve static assets)
+COPY --from=builder /main-app/next.config.js ./
+
 # Expose the port the app runs on
 EXPOSE 3000
 
-# Environment variables necessary for module federation and production build
-ENV NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production PORT=3000
-
 # Start the application
-CMD ["node", "server.js"]
+CMD ["npm", "run", "docker-start"]

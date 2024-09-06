@@ -1,4 +1,4 @@
-# Main/shell app Dockerfile
+# Main/shell app Dockerfile with standalone build
 
 # Official Node.js runtime as a parent image
 FROM node:20-slim AS builder
@@ -16,7 +16,7 @@ RUN npm install
 COPY . .
 
 # Environment variables necessary for module federation and production build
-ENV NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production
+ENV NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production STANDALONE_BUILD=true
 
 # Build the Next.js app
 RUN npm run docker-build
