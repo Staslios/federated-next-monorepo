@@ -18,10 +18,9 @@ const nextConfig = {
         exposes: {
           './ExternalA': './src/components/ExternalizedA/ExternalizedA.js'
         },
-        shared: {},
         extraOptions: {
           debug: process.env.NODE_ENV !== 'production',
-          //automaticAsyncBoundary: true
+          automaticAsyncBoundary: true
         }
       })
     );

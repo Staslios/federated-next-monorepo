@@ -1,4 +1,4 @@
-# Provider two Dockerfile
+# Provider TWO Dockerfile
 
 # Official Node.js runtime as a parent image
 FROM node:20-slim AS builder
@@ -33,12 +33,6 @@ COPY --from=builder /provider-two/.next/standalone ./
 
 # Copy the public folder (it is needed to serve static assets)
 COPY --from=builder /provider-two/public ./public
-
-# Optionally copy the next.config.js if needed
-# COPY --from=builder /provider-two/next.config.js ./
-
-# Optionally copy any .env files if you are not using Docker environment variables
-# COPY --from=builder /provider-two/.env ./
 
 # Expose the port the app runs on
 EXPOSE 3002
