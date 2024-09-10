@@ -1,6 +1,12 @@
 # federated-next-monorepo
 Setup with Next 14 (page routing) + Module Federation + npm workspaces + scss.
 
+## The Idea
+- A main/shell application that does not expose any remote but servers as global container
+- Multiple apps/providers that share components through Module Federation's remote at `src/packages/*`
+![Alt Text](docs/img/prj-scheme.png)
+
+
 ## Getting started
 Clone project
 ``` bash
@@ -18,29 +24,32 @@ at last start project in dev mode
 npm run dev-all
 ```
 
+OR
+
+If you have using Docker just run the `docker-compose.yml`, and it's ready to go.
+
 It will start the main/shell app on localhost:3000 and the providers on :3001 and :3002
 
-## Dependencies explained
-- **@module-federation/nextjs-mf**: core module module federation module for next
-- **cross-env**: solves environment variables problem between win and unix machines
-- **rimraf**: same as cross-env but for the command remove `rm -rf`.
-- **sass**: I guess why not? 
-- **webpack**: Even tho Next comes with webpack we need it to install in order to work with Module Federation
-- **concurrently**: It is a better version of 'npm run something & npm run something'
+## Features
+- Both Node and Docker support
+- All applications can be run as standalone project.
+- Exposed components from `.src/packages/[app]`.
+- Providers are manager via NPM workspaces, `node_modules` are all at root project.
 
-## Observations
-1. The root `./node_modules` includes all downloaded deps, those inside the workspaces include some build time configuration for Module Federation;
-2. Same speech for `./package.json`, it include all configured deps;
-3. CSS or SCSS is either global inside _app.js or as css module and will be injected into js. Styles cannot be imported on separate file from the component;
-4. Due to Module Federation app router is off limits;
-5. Apparently Module Federation exported components can be imported in any way (`es import`, `dynamic`, `lazy`, `window`) they can be used both ssr and csr.
-6. If you opt for SSR with exposed components from Module Federation, when building the _shell_ the _providers_ have to be up and running;
-7. Yes, `_app.js` is needed.
-8. Yes, `_document.js` is needed.
+## Dependencies
+- **@module-federation/nextjs-mf**: core module module federation module for next.
+- **cross-env**: solves environment variables problem between win and unix machines.
+- **rimraf**: same as cross-env but for the command remove `rm -rf`.
+- **sass**: I guess why not?.
+- **webpack**: Even tho Next comes with webpack we need it to install in order to work with Module Federation.
+- **concurrently**: It is a better version of 'npm run something & npm run something'.
+
+## Bugs
+- Seems that Module Federation remotes do not work properly with Next standalone build, if you have found a solution please hit me up.
 
 ## Roadmap
 - ~~Docker build with federated modules~~
-- Docker multi-stage build - WIP
-~~- Docker volumes for `node_modules` - WIP~~ 
-  - Since the idea is to have each process a standalone process a shared node_modules would bring the opposite result
-- Next standalone build
+- ~~Docker multi-stage build~~
+- ~~Next standalone build~~ Kinda dead end on this point
+- Docker compose optimization - WIP
+- Deploy on remote domain
