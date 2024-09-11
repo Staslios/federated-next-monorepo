@@ -11,7 +11,6 @@ Setup with Next 14 (page routing) + Module Federation + npm workspaces + scss.
 - Provider one `./src/packages/provider-one`: https://federated-next-monorepo-provider-one.vercel.app
 - Provider two `./src/packages/provider-two`: https://federated-next-monorepo-provider-two.vercel.app
 
-
 ## Getting started
 Clone project
 ``` bash
@@ -57,4 +56,4 @@ It will start the main/shell app on localhost:3000 and the providers on :3001 an
 - ~~Docker multi-stage build~~
 - ~~Next standalone build~~ Kinda dead end on this point
 - Docker compose optimization - WIP
-- Deploy on remote domain
+- ~~Deploy on remote domain~~
