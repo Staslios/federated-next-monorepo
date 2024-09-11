@@ -6,6 +6,11 @@ Setup with Next 14 (page routing) + Module Federation + npm workspaces + scss.
 - Multiple apps/providers that share components through Module Federation's remote at `src/packages/*`
 ![Alt Text](docs/img/prj-scheme.png)
 
+## Demo
+- Shell `./` : https://federated-next-monorepo-provider-one.vercel.app
+- Provider one `./src/packages/provider-one`: https://federated-next-monorepo-provider-one.vercel.app
+- Provider two `./src/packages/provider-two`: https://federated-next-monorepo-provider-two.vercel.app
+
 
 ## Getting started
 Clone project
