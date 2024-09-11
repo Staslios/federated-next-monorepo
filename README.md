@@ -7,7 +7,7 @@ Setup with Next 14 (page routing) + Module Federation + npm workspaces + scss.
 ![Alt Text](docs/img/prj-scheme.png)
 
 ## Demo
-- Shell `./` : https://federated-next-monorepo-provider-one.vercel.app
+- Shell `./` : https://federated-next-monorepo.vercel.app
 - Provider one `./src/packages/provider-one`: https://federated-next-monorepo-provider-one.vercel.app
 - Provider two `./src/packages/provider-two`: https://federated-next-monorepo-provider-two.vercel.app
 
