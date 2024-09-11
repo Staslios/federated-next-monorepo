@@ -12,7 +12,7 @@ const nextConfig = {
   webpack(config, { isServer, webpack }) {
 
     const PROVIDER_ONE_URL = process.env.PROVIDER_ONE_URL ?? 'http://localhost:3001'
-    const PROVIDER_TWO_URL = process.env.PROVIDER_ONE_URL ?? 'http://localhost:3002'
+    const PROVIDER_TWO_URL = process.env.PROVIDER_TWO_URL ?? 'http://localhost:3002'
 
     config.plugins.push(
       new NextFederationPlugin({
