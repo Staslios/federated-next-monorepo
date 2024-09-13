@@ -35,7 +35,7 @@ COPY package.json ./
 ENV NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production
 
 # Install dependencies
-RUN npm install --production
+RUN npm install --omit=dev
 
 # Copy from builder of the necessary files only
 COPY --from=builder /provider-one/.next ./.next
