@@ -11,6 +11,7 @@
   "scripts": {
     "clean": "rimraf .next",
     "dev": "npm run clean && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true next dev -p 3000",
+    "dev-debug": "npm run clean && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_OPTIONS='--inspect' next dev -p 3000",
     "dev-all": "concurrently \"npm run dev\" \"npm run dev --workspace=provider-one\" \"npm run dev --workspace=provider-two\"",
     "build": "npm run clean && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production next build",
     "build-standalone": "npm run clean && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production STANDALONE_BUILD=true next build",

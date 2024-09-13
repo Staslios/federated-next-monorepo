@@ -33,6 +33,9 @@ services:
     container_name: consumer-app
     networks:
       - local-network
+    depends_on:
+      - provider-one
+      - provider-two
 
 networks:
   local-network:
