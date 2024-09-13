@@ -1,7 +1,7 @@
 services:
   # NB: shell/consumer has to run as last app, workspaces can be run at will
 
-  ## 1st workspace
+  ## 1st provider
   provider-one:
     build:
       context: ./src/packages/provider-one
@@ -12,7 +12,7 @@ services:
     networks:
       - local-network
 
-  ## 2nd workspace
+  ## 2nd provider
   provider-two:
     build:
       context: ./src/packages/provider-two
