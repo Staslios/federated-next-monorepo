@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import ExternalizedA from "@/components/ExternalizedA/ExternalizedA";
+import CatFact from "@/components/CatFact/CatFact";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -18,6 +19,7 @@ export default function Home() {
     <main className={`${inter.className}`}>
       <h1>{TITLE}</h1>
       <ExternalizedA description={'local import'}/>
+      <CatFact/>
     </main>
   </>
 }

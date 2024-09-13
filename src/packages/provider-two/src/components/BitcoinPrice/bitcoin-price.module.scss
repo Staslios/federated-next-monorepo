@@ -1,0 +1,35 @@
+.container {
+  border: 1px solid lightskyblue;
+  border-radius: 4px;
+  text-align: center;
+  margin: 50px;
+  font-family: Arial, sans-serif;
+}
+
+.prices {
+  color: #00319c;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.price {
+  color: #000c25;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  width: 150px;
+}
+
+.price h2 {
+  color: #000c25;
+  margin-bottom: 10px;
+}
+
+.price p {
+  color: #000c25;
+  font-size: 1.2rem;
+  font-weight: bold;
+}

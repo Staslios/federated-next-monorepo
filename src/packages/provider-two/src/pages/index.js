@@ -1,11 +1,12 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import ExternalizedB from "@/components/ExternalizedB/ExternalizedB";
+import BitcoinPrice from "@/components/BitcoinPrice/BitcoinPrice";
 
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function Home({ data }) {
   const TITLE = "Provider Two"
 
   return <>
@@ -18,6 +19,12 @@ export default function Home() {
     <main className={`${inter.className}`}>
       <h1>{TITLE}</h1>
       <ExternalizedB description={'local import'}/>
+      <BitcoinPrice data={data} />
     </main>
   </>
+}
+
+export async function getServerSideProps() {
+
+  return await BitcoinPrice.getServerSideProps();
 }

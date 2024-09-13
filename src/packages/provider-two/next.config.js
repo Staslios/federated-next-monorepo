@@ -16,7 +16,8 @@ const nextConfig = {
         name: 'provider-two',
         filename: 'static/chunks/remoteEntry.js',
         exposes: {
-          './ExternalB': './src/components/ExternalizedB/ExternalizedB.js'
+          './ExternalB': './src/components/ExternalizedB/ExternalizedB.js',
+          './BitcoinPrice': './src/components/BitcoinPrice/BitcoinPrice.js'
         },
         extraOptions: {
           debug: process.env.NODE_ENV !== 'production',

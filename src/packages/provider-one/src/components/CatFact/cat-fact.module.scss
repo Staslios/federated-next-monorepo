@@ -1,0 +1,26 @@
+.container {
+  text-align: center;
+  margin: 50px;
+  font-family: Arial, sans-serif;
+}
+
+.button {
+  background-color: #f76c6c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button:hover {
+  background-color: #f44336;
+}
+
+.fact-container {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
