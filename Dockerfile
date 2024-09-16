@@ -1,9 +1,9 @@
-# Main/shell app Dockerfile
+# ROOT Dockerfile
 
-# Official Node.js runtime as a parent image
-FROM node:20-slim AS builder
+# base image with all dependencies
+FROM node:20.17.0-slim AS base
 
-# Set the working directory inside the container
+# sets working dir
 WORKDIR /main-app
 
 # Copy the package.json file
@@ -12,45 +12,61 @@ COPY package.json ./
 # Install dependencies
 RUN npm install
 
-# Copy the rest of the application code
-COPY . .
+# .next production build stage
+FROM base AS builder
 
-# Environment variables necessary for module federation and production build
-ENV NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production
-
-# Build the Next.js app
-RUN npm run docker-build
-
-
-# Production image with only necessary files
-FROM node:20-slim
-
-# Set the working directory inside the container
+# sets working dir
 WORKDIR /main-app
 
-# Copy the package.json file
-COPY package.json ./
+# copies app code
+COPY . .
 
-# Environment variables necessary for module federation and production build
+# copies node modules
+COPY --from=base /main-app/node_modules ./node_modules
+
+# env variables for module federation and production build
 ENV NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production
 
-# Install dependencies
+# build script
+RUN npm run docker-build
+
+# production dependencies only
+FROM builder AS prod-base
+
+# sets working dir
+WORKDIR /main-app
+
+# copies package.json
+COPY package.json ./
+
+# env variables for module federation and production build
+ENV NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production
+
+# installs prod deps only
 RUN npm install --omit=dev
 
-# Copy from builder of the necessary files only
-COPY --from=builder /main-app/.next ./.next
-
-# Removes next standalone build in order to free some space since we wont need it
+# removes reduntant next files
 RUN rm -rf /.next/standalone
 
-# Copy the public folder (it is needed to serve static assets)
-COPY --from=builder /main-app/public ./public
+# final image
+FROM prod-base
 
-# Copy the public folder (it is needed to serve static assets)
+# sets working dir
+WORKDIR /main-app
+
+# copies necessary files to launch next server
+COPY --from=builder /main-app/.next ./.next
+COPY --from=builder /main-app/public ./public
 COPY --from=builder /main-app/next.config.js ./
+
+# copies node modules
+COPY --from=prod-base /main-app/node_modules ./node_modules
+
+# sets non priviledged user
+USER node
 
 # Expose the port the app runs on
 EXPOSE 3000
 
 # Start the application
-CMD ["npm", "run", "docker-start"]
+CMD ["node_modules/.bin/next", "start", "-p", "3000"]
