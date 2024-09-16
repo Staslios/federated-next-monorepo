@@ -9,7 +9,7 @@
     "build": "npm run clean && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production next build",
     "build-standalone": "npm run clean && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production STANDALONE_BUILD=true next build",
     "start": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production next start -p 3002",
-    "start-standalone": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production PORT=3002 node .next/standalone/src/packages/provider-one/server.js",
+    "start-standalone": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true NODE_ENV=production PORT=3002 node .next/standalone/src/packages/provider-two/server.js",
     "build-start": "npm run build && npm run start",
     "build-start:standalone": "npm run build-standalone && npm run start-standalone",
     "docker-build": "next build",
