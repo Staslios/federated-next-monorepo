@@ -6,7 +6,8 @@
   },
   "workspaces": [
     "src/packages/provider-one",
-    "src/packages/provider-two"
+    "src/packages/provider-two",
+    "src/packages/provider-three"
   ],
   "scripts": {
     "clean": "rimraf .next",

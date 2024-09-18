@@ -1,0 +1,44 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# workspaces
+src/packages/**/.next
+src/packages/**/node_modules
+src/packages/**/.idea
+
+# testing
+/coverage
+
+# builds
+/.next
+/build
+/dist
+/out
+
+# ide
+.vscode
+.idea
+.DS_Store
+.vercel
+*.pem
+*.swp
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# env files
+.env*
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# temporary
+package-lock.json
+src/packages/**/package-lock.json
