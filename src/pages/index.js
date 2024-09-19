@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+const Home = () => {
   const TITLE = "Federated Next monorepo"
 
   return <>
@@ -12,7 +12,13 @@ export default function Home() {
         <title>{TITLE}</title>
       </Head>
       <main className={`${inter.className}`}>
-        <span><i>No remotes imported here. Browse other routes</i></span>
+        <div><i>No remotes imported here. Browse other routes</i></div>
       </main>
     </>
 }
+
+Home.getInitialProps = async ()=> {
+  return {}
+}
+
+export default Home

@@ -1,25 +1,26 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import React from 'react';
-import { revalidate, flushChunks } from '@module-federation/nextjs-mf/utils';
+import {
+  revalidate,
+  FlushedChunks,
+  flushChunks,
+} from '@module-federation/nextjs-mf/utils';
 
 class MyDocument extends Document {
 
   static async getInitialProps(ctx) {
 
-    if (process.env.NODE_ENV === 'development' && !ctx.req.url.includes('_next')) {
-      await revalidate().then(shouldReload => {
-        if (shouldReload) {
-          ctx.res.writeHead(302, { Location: ctx.req.url });
-          ctx.res.end();
-        }
-      });
+    if (ctx.pathname) {
+      if (!ctx.pathname.endsWith('_error')) {
+        await revalidate().then((shouldUpdate) => {
+          if (shouldUpdate) {
+            console.log('should HMR', shouldUpdate);
+          }
+        });
+      }
     }
-    else {
-      ctx?.res?.on('finish', () => {
-        revalidate();
-      });
-    }
+
     const initialProps = await Document.getInitialProps(ctx);
+
     const chunks = await flushChunks();
 
     return {
@@ -31,7 +32,9 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <FlushedChunks chunks={this.props.chunks} />
+        </Head>
         <body>
         <Main />
         <NextScript />

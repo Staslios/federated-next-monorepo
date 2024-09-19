@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlugin;
 
 module.exports = {
@@ -37,17 +38,38 @@ module.exports = {
           presets: [require.resolve('@babel/preset-react')],
         },
       },
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader, // Extract CSS into separate files
+          'css-loader', // Interprets @import and url() like import/require()
+        ],
+      },
     ],
   },
 
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css', // Naming convention for extracted CSS files
+    }),
     new ModuleFederationPlugin({
       name: 'provider_three',
       filename: 'remoteEntry.js',
       exposes: {
         './test': './src/index',
       },
-      shared: {},
+      shared: {
+        'react': {
+          requiredVersion: false,
+          singleton: true,
+          version: "0"
+        },
+        'react-dom': {
+          requiredVersion: false,
+          singleton: true,
+          version: "0"
+        }
+      },
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
