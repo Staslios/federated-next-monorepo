@@ -21,10 +21,8 @@
     "webpack-dev-server": "^5.1.0"
   },
   "scripts": {
-    "start": "concurrently \"npm run watch\" \"npm run serve\"",
-    "watch": "webpack --watch",
-    "build": "webpack --mode production",
-    "serve": "webpack serve --port 3003",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "dev": "npm run clean && concurrently \"webpack --watch\" \"node server.js\"",
+    "build": "webpack --mode production"
   }
 }

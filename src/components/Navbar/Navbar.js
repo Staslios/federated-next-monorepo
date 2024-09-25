@@ -17,6 +17,9 @@ const Navbar = ({}) => {
       <Link href="/provider-three">Provider three</Link>
     </li>
     <li>
+      <Link href="/provider-four">Provider four (React)</Link>
+    </li>
+    <li>
       <Link href="/all-providers">All providers</Link>
     </li>
   </ul>
