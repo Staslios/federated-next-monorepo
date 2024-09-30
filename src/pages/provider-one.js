@@ -2,8 +2,13 @@ import dynamic from "next/dynamic";
 import { lazy, Suspense } from "react";
 
 
+import BitcoinPrice from 'provider-one/BitcoinPrice';
+
+const DynamicSSRBitcoin = dynamic(() =>
+  import('provider-one/BitcoinPrice'), { loading: () => <p>Loading csr...</p>, ssr: true })
+
 const DynamicExternalACSR = dynamic(() =>
-  import('provider-one/ExternalA'), {loading: () => <p>Loading csr...</p>, ssr: false})
+  import('provider-one/ExternalA'), { loading: () => <p>Loading csr...</p>, ssr: false})
 
 const DynamicExternalASSR = dynamic(() =>
   import('provider-one/ExternalA'))
@@ -18,7 +23,7 @@ const DynamicCatFactSSR = dynamic(() =>
   import('provider-one/CatFact'))
 
 
-const ProviderOne = () => {
+const ProviderOne = ({ data }) => {
 
   return <>
     <h1>Provider one route</h1>
@@ -39,9 +44,17 @@ const ProviderOne = () => {
 
     <h4>CSR dynamic import</h4>
     <DynamicCatFactCSR/>
+
+    <h4>ES import</h4>
+    <BitcoinPrice data={data}/>
+
+    <h4>SSR dynamic import</h4>
+    <DynamicSSRBitcoin data={data}/>
   </>
 }
 
-ProviderOne.getInitialProps = async ()=> { return {} }
+export async function getServerSideProps() {
+  return await BitcoinPrice.getServerSideProps();
+}
 
 export default ProviderOne

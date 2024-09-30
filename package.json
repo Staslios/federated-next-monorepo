@@ -21,7 +21,8 @@
     "build-start": "npm run build && npm run start",
     "build-start:standalone": "npm run build-standalone && npm run start-standalone",
     "docker-build": "next build",
-    "docker-start": "next start -p 3000"
+    "docker-start": "next start -p 3000",
+    "docker-compose-app": "docker compose -f docker/compose/compose.yml up"
   },
   "dependencies": {
     "@module-federation/nextjs-mf": "^8.4.9",

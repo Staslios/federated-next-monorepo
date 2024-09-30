@@ -1,4 +1,4 @@
-# ROOT Dockerfile
+# ROOT docker config
 
 # base image with all dependencies
 FROM node:20.17.0-slim AS base
@@ -19,7 +19,7 @@ FROM base AS builder
 WORKDIR /main-app
 
 # copies app code
-COPY . .
+COPY .. .
 
 # copies node modules
 COPY --from=base /main-app/node_modules ./node_modules

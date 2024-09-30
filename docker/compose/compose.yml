@@ -1,10 +1,11 @@
+name: federated-monorepo
 services:
-  # NB: shell/consumer has to run as last app, workspaces can be run at will
 
   ## 1st provider
   provider-one:
     build:
-      context: ./src/packages/provider-one
+      context: ../../src/packages/provider-one
+      dockerfile: ./docker/dockerfile/Dockerfile
     ports:
       - "3001:3001"
     image: provider-one:0.1.0
@@ -13,20 +14,21 @@ services:
       - local-network
 
   ## 2nd provider
-  provider-two:
-    build:
-      context: ./src/packages/provider-two
-    ports:
-      - "3002:3002"
-    image: provider-two:0.1.0
-    container_name: provider-two
-    networks:
-      - local-network
+#  provider-two:
+#    build:
+#      context: ./src/packages/provider-two
+#    ports:
+#      - "3002:3002"
+#    image: provider-two:0.1.0
+#    container_name: provider-two
+#    networks:
+#      - local-network
 
   # shell/consumer application
   consumer:
     build:
-      context: .
+      context: ../../
+      dockerfile: ../dockerfile/Dockerfile (standard)
     ports:
       - "3000:3000"
     image: consumer-app:0.1.0
@@ -35,7 +37,7 @@ services:
       - local-network
     depends_on:
       - provider-one
-      - provider-two
+#      - provider-two
 
 networks:
   local-network:

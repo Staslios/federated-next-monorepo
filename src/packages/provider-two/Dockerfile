@@ -1,4 +1,4 @@
-# Provider TWO Dockerfile-next-standalone
+# Provider TWO Dockerfile (standard)-standalone
 
 # Official Node.js runtime as a parent image
 FROM node:20-slim AS builder

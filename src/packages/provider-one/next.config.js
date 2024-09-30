@@ -17,7 +17,8 @@ const nextConfig = {
         filename: 'static/chunks/remoteEntry.js',
         exposes: {
           './ExternalA': './src/components/ExternalizedA/ExternalizedA.js',
-          './CatFact': './src/components/CatFact/CatFact.js'
+          './CatFact': './src/components/CatFact/CatFact.js',
+          './BitcoinPrice': './src/components/BitcoinPrice/BitcoinPrice.js'
         },
         extraOptions: {
           debug: process.env.NODE_ENV !== 'production',

@@ -1,8 +1,11 @@
 # dependencies
 /node_modules
 
+# workspaces
+/docker
+
 # next.js
-/.next/
+/.next
 
 # production
 /build
@@ -21,3 +24,7 @@ yarn-error.log*
 .env*
 .env*.local
 package-lock.json
+
+# documentation
+*.md
+/docs

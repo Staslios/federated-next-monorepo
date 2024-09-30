@@ -1,8 +1,11 @@
+# root level .dockerignore
+
 # dependencies
 /node_modules
 
 # workspaces
-src/packages/**
+/src/packages/**
+/docker
 
 # testing
 /coverage
@@ -29,7 +32,6 @@ yarn-error.log*
 
 # env files
 .env*
-package-lock.json
 
 # typescript
 *.tsbuildinfo
@@ -38,3 +40,6 @@ next-env.d.ts
 # documentation
 *.md
 /docs
+
+# temp
+package-lock.json
