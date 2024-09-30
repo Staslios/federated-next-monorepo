@@ -5,7 +5,7 @@ services:
   provider-one:
     build:
       context: ../../src/packages/provider-one
-      dockerfile: ./docker/dockerfile/Dockerfile
+      dockerfile: docker/dockerfile/Dockerfile
     ports:
       - "3001:3001"
     image: provider-one:0.1.0
@@ -28,7 +28,7 @@ services:
   consumer:
     build:
       context: ../../
-      dockerfile: ../dockerfile/Dockerfile (standard)
+      dockerfile: docker/dockerfile/Dockerfile (standard)
     ports:
       - "3000:3000"
     image: consumer-app:0.1.0
